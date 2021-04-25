@@ -5,7 +5,7 @@
   "main": "1-intro.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon 8-nodemon.js"
+    "dev": "nodemon 10-async-patterns/blocking-example.js"
   },
   "repository": {
     "type": "git",
