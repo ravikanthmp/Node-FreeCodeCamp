@@ -1,1 +1,1 @@
-this is file 1 THIS IS COOL (USING fs.promise) this is file 2
+this is file 1 THIS IS COOL (USING fs.promise) this is file 2this is file 1 THIS IS COOL (USING Async/Await fs.promise) this is file 2
