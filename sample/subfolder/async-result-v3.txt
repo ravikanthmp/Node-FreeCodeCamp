@@ -1,0 +1,1 @@
+this is file 1 THIS IS COOL (USING fs.promise) this is file 2
