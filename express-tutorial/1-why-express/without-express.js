@@ -2,19 +2,18 @@ const http = require('http')
 const {readFileSync} = require('fs')
 const path = require('path');
 
-const homePageContent = readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+const homePageContent = readFileSync(path.join(__dirname, 'navbar-app', 'index.html'), 'utf8');
 
 let server = http.createServer();
 server.on('request', (req, res) => {
 
-    console.log(req.method);
     console.log(req.url);
 
-    if (req.url === "/"){
-        res.writeHead(200, {'content-type' : "text/html"})
+    if (req.url === "/") {
+        res.writeHead(200, {'content-type': "text/html"})
         res.write(homePageContent)
-
-    }else if (req.url === "/about"){
+    }
+    else if (req.url === "/about"){
         res.writeHead(200, {'content-type' : "text/html"})
         res.write('<p>About</p>')
 
