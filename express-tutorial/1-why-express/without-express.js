@@ -1,4 +1,8 @@
 const http = require('http')
+const {readFileSync} = require('fs')
+const path = require('path');
+
+const homePageContent = readFileSync(path.join(__dirname, 'index.html'), 'utf8');
 
 let server = http.createServer();
 server.on('request', (req, res) => {
@@ -8,7 +12,7 @@ server.on('request', (req, res) => {
 
     if (req.url === "/"){
         res.writeHead(200, {'content-type' : "text/html"})
-        res.write('<p>Homepage</p>')
+        res.write(homePageContent)
 
     }else if (req.url === "/about"){
         res.writeHead(200, {'content-type' : "text/html"})
