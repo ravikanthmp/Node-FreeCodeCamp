@@ -5,7 +5,7 @@
   "main": "1-intro.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon express-tutorial/2-express/app.js"
+    "dev": "nodemon express-tutorial/3-api/app.js"
   },
   "repository": {
     "type": "git",
