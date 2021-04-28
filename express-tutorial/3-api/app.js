@@ -1,10 +1,21 @@
 const express = require('express');
 const {products} = require('./data')
+const logDate = require('./utils')
+const morgan = require("morgan");
+const path = require('path');
+const auth = require('./auth')
 
 const app = express();
-app.listen(5000, () => console.log("server started on port 5000"))
 
-app.get("/", ((req, res) => {
+let people = [];
+
+app.use(
+    [express.static(path.join(__dirname, 'public')) ,
+    logDate, morgan("tiny")]
+)
+
+app.get("/dummy", ((req, res) => {
+    console.log(req.url)
     res.send(`<p> Go to this link to see out products <a href="/api/products" >Products Link</a></p>`)
 
 }))
@@ -12,6 +23,10 @@ app.get("/", ((req, res) => {
 // all products
 app.get("/api/products", ((req, res) => {
     res.json(products)
+}))
+
+app.get("/api/users", ((req, res) => {
+    res.json(people)
 }))
 
 // path params
@@ -33,3 +48,22 @@ app.get("/api/v1/products/", ((req, res) => {
     }
 }))
 
+app.post("/addUser",
+    express.urlencoded({extended : false}),
+    ((req, res) => {
+        const name = req.body.name;
+        if (name){
+            people.push(name)
+            res.status(201).send("Added a new user!")
+        }else {
+            res.status(500).send("Error!")
+        }
+
+}))
+
+
+app.all("*", (req, res) => {
+    res.status(404).send("Page Not Found!")
+})
+
+app.listen(5000, () => console.log("server started on port 5000"))
