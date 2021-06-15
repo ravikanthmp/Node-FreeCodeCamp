@@ -2,7 +2,7 @@ const http = require('http');
 const server = http.createServer();
 const {readFileSync, writeFileSync, writeFile}  = require('fs')
 
-const bigfilePath = "./../sample/subfolder/bigfile.txt";
+const bigfilePath = "./sample/subfolder/bigfile.txt";
 
 // create  a big file > 1MB size
 
