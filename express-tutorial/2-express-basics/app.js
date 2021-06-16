@@ -8,13 +8,14 @@ const app = express();
 //     res.end();
 // }))
 
+// declare static assets
+app.use(express.static('navbar-app'))
+
 // send file (IN-BUILT)
-app.get("/", ((req, res) => {
-    const index = path.resolve(__dirname, './../../navbar-app', 'index.html')
-    res.sendFile(index)
-}))
-
-
+// app.get("/", ((req, res) => {
+//     const index = path.resolve(__dirname, './../../navbar-app', 'index.html')
+//     res.sendFile(index)
+// }))
 
 // default fallback
 app.use('*', ((req, res) => {
