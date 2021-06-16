@@ -1,21 +1,14 @@
 const express = require('express');
 const path = require('path')
+const { products, people } = require('./data')
 const app = express();
 
-// get for a particular route
-// app.get("/", ((req, res) => {
-//     res.send("Hi there!")
-//     res.end();
-// }))
-
-// declare static assets
 app.use(express.static('navbar-app'))
 
-// send file (IN-BUILT)
-// app.get("/", ((req, res) => {
-//     const index = path.resolve(__dirname, './../../navbar-app', 'index.html')
-//     res.sendFile(index)
-// }))
+app.get('/api/products', ((req, res) => {
+    res.json(products)
+}))
+
 
 // default fallback
 app.use('*', ((req, res) => {
